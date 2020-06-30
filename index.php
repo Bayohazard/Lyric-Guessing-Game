@@ -30,7 +30,22 @@
 
     function restart_database($connection) {
       // Clears the table
-      $sql = "DELETE FROM songs";
+      $sql = "DROP TABLE songs";
+      mysqli_query($connection, $sql);
+
+      // Creates new table
+      $sql = "CREATE TABLE Songs (
+        id int NOT NULL AUTO_INCREMENT,
+        Title varchar(255) NOT NULL,
+        Length varchar(6) NOT NULL,
+        Artist varchar(255) NOT NULL,
+        Album varchar(255) NOT NULL,
+        Genre varchar(255) NOT NULL,
+        Is_Loved int NOT NULL,
+        Plays int NOT NULL,
+        PRIMARY KEY (id)
+      );";
+
       mysqli_query($connection, $sql);
 
       // Preparing statement
@@ -39,8 +54,8 @@
               VALUES (?, ?, ?, ?, ?, ?, ?)");
 
       // Binding values to prepared statement(Prevents SQL injection attacks)
-      $statement->bind_param("sssssii", $title, $length, $artist, $album,
-              $genre, $is_loved, $plays);
+      mysqli_stmt_bind_param($statement, "sssssii", $title, $length,
+                            $artist, $album, $genre, $is_loved, $plays);
 
       // Open file in "read" mode
       $file = fopen("song-information.txt", "r");
@@ -58,7 +73,7 @@
         $plays = isset($arr[7]) ? intval($arr[7]) : 0;
 
         // Execute the prepared statement after updating the variables
-        $statement->execute();
+        mysqli_stmt_execute($statement);
       }
     }
 

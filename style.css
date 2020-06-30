@@ -23,13 +23,35 @@ a:hover {
   color: #555;
 }
 
+button {
+  background-color: white;
+
+}
+
 h2 {
   text-align: center;
-  margin: 2rem;
+  font-size: 2rem;
+  margin: 0.5rem;
+}
+
+p {
+  display: inline;
+  font-size: 1.5rem;
+}
+
+button {
+  font-size: 1rem;
+  padding: 0.3rem 0.6rem;
 }
 
 .main-div {
   margin: 5rem 0;
+}
+
+.randomize-div {
+  text-align: center;
+  margin-top: 8rem;
+  padding: 0.3rem 0.6rem;
 }
 
 .start-btn {
@@ -40,4 +62,10 @@ h2 {
 .back-btn {
   font-size: 2.5rem;
   padding: 1rem 2rem;
+}
+
+#title, #artist {
+  text-align: center;
+  display: block;
+  margin: 3rem;
 }
