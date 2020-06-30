@@ -13,3 +13,31 @@ h1 {
   margin: 2rem;
   text-align: center;
 }
+
+a, a:visited {
+  font-size: 2rem;
+  color: black;
+}
+
+a:hover {
+  color: #555;
+}
+
+h2 {
+  text-align: center;
+  margin: 2rem;
+}
+
+.main-div {
+  margin: 5rem 0;
+}
+
+.start-btn {
+  text-align: center;
+  margin-top: 50vh;
+}
+
+.back-btn {
+  font-size: 2.5rem;
+  padding: 1rem 2rem;
+}

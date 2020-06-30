@@ -6,7 +6,7 @@
     <title>Finish The Lyric</title>
     <link rel="stylesheet" href="style.css">
   </head>
-  <body onload="load()">
+  <body>
 
     <?php
 
@@ -70,6 +70,8 @@
     ?>
 
     <h1 id="title">Song Quiz</h1>
-    <script type="text/javascript" src="script.js"></script>
+    <div class="start-btn">
+      <a href="game.html">Start</a>
+    </div>
   </body>
 </html>
