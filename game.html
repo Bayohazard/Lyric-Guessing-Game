@@ -7,16 +7,25 @@
     <link rel="stylesheet" href="style.css">
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
   </head>
-  <body onload="load()">
-    <div class="exit-div">
-      <a href="index.php"><i class="fas fa-arrow-left back-btn"></i></a>
+  <body onload="setup()">
+    <div class="top-div">
+      <a href="index.html"><i class="fas fa-arrow-left back-btn"></i></a>
+      <h2 id="timer"></h2>
     </div>
-    <div id="information-div">
-      <div id="title"></div>
-      <div id="artist"></div>
-    </div>
-    <div class="randomize-div">
-      <button type="button" name="button" onclick="load()">Randomize</button>
+    <div class="main-div">
+      <div id="information-div">
+        <div id="title"></div>
+        <div id="artist"></div>
+      </div>
+      <div class="input-div">
+        <h2>Album</h2>
+        <form class="album-answer-input" action="game.html" onsubmit="saveResult()" method="get" autocomplete="off">
+          <input type="text" name="answer" id="answer-input" maxlength="100">
+        </form>
+      </div>
+      <div class="randomize-div">
+        <button type="button" name="button" onclick="load()">Randomize</button>
+      </div>
     </div>
     <script type="text/javascript" src="script.js"></script>
   </body>
