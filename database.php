@@ -1,8 +1,15 @@
 <?php
+include "song.php";
+session_start();
+
 $servername = "localhost";
 $username = "root";
 $password = "";
 $database_name = "song_information";
+// Makes sure the array is only initialised the first time
+if(!isset($_SESSION["answers"])) {
+  $_SESSION["answers"] = array();
+}
 
 // Set to true to clear and refill the databse
 $should_restart_database = False;
@@ -94,6 +101,10 @@ if(mysqli_num_rows($result) > 0) {
         str_replace($uw, "", $row["Album"]);
       }
     }
+
+    // Creates a Song object and add it to the session array
+    $song = new Song($row["Album"], $row["Title"], $row["Artist"]);
+    array_push($_SESSION["answers"], $song);
 
     echo "<div id='title'>
             <h2>Title: </h2>

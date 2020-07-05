@@ -1,8 +1,9 @@
 let answers = [];
 const START_TIME = Math.round(Date.now() / 1000);
+const timer = setInterval(updateTimer, 50);
 
 // The timer starts at 1 minute
-const TIME_ALLOWED = 60;
+const TIME_ALLOWED = 5;
 
 
 function setup() {
@@ -34,9 +35,14 @@ function updateTimer() {
   let timeLeft = TIME_ALLOWED - difference;
   if(timeLeft <= 0) {
     timeLeft = 0;
-    //endGame();
+    location.href = 'stats.html';
   }
-  document.getElementById("timer").innerHTML = formatTime(timeLeft);
+  try {
+    document.getElementById("timer").innerHTML = formatTime(timeLeft);
+  } catch(err) {
+    clearInterval(timer);
+  }
+
 }
 
 function endGame() {
@@ -48,7 +54,7 @@ function endGame() {
       document.getElementById("main-div").innerHTML = this.responseText;
     }
   }
-  request.open("GET", "check-answers.php?answers="+answersJSON, true);
+  request.open("GET", "check-answers.php?inputs="+answersJSON, true);
   request.send();
 }
 
@@ -65,5 +71,3 @@ function formatTime(sec) {
   }
   return `${minutes}:${seconds}`;
 }
-
-setInterval(updateTimer, 50);
