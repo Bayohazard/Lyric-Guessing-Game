@@ -5,13 +5,18 @@ include "song.php";
 session_start();
 $answers = $_SESSION["answers"];
 
-$inputs = json_decode($_REQUEST["inputs"]);
-foreach($inputs as $in) {
-  echo $in . "<br />";
-}
-echo "<br />";
-echo "<br />";
+if(isset($_GET["input"])) {
+  $name = $_GET["input"];
+  echo "<br /> Inside GET";
+  echo $name;
+  echo "<br />";
 
+}
+
+
+// foreach($inputs as $in) {
+//   echo $in . "<br />";
+// }
 
 // Display the title of every song that appeared
 foreach($answers as $ans) {

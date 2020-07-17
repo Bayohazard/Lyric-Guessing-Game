@@ -2,6 +2,18 @@
 include "song.php";
 session_start();
 
+// $params = $_GET; // query string $params
+// $_POST // POST params (for form submits)
+// associative array
+/*$time_of_day = 'evening';
+if (isset($params['name'])) {
+  echo "Good $time_of_day, {$params['name']}";
+
+//print_r($params);
+die();
+*/
+
+
 $servername = "localhost";
 $username = "root";
 $password = "";

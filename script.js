@@ -1,9 +1,8 @@
-let answers = [];
 const START_TIME = Math.round(Date.now() / 1000);
 const timer = setInterval(updateTimer, 50);
 
 // The timer starts at 1 minute
-const TIME_ALLOWED = 5;
+const TIME_ALLOWED = 60;
 
 
 function setup() {
@@ -25,7 +24,9 @@ function load() {
 
 function saveResult() {
   let answer = document.getElementById("answer-input").value;
-  answers.push(answer);
+  inputs.push(answer);
+  console.log(inputs);
+  // ajax POST => 'save-answer.php';
 }
 
 // Get number of seconds since page loaded and display it after formating it
@@ -35,7 +36,7 @@ function updateTimer() {
   let timeLeft = TIME_ALLOWED - difference;
   if(timeLeft <= 0) {
     timeLeft = 0;
-    location.href = 'stats.html';
+    location.href = 'stats.php';
   }
   try {
     document.getElementById("timer").innerHTML = formatTime(timeLeft);
@@ -47,7 +48,7 @@ function updateTimer() {
 
 function endGame() {
   const request = new XMLHttpRequest();
-  const answersJSON = JSON.stringify(answers);
+  const answersJSON = JSON.stringify(inputs);
 
   request.onreadystatechange = function() {
     if(this.readyState == 4 && this.status == 200) {

@@ -10,7 +10,7 @@
   <body onload="setup()">
     <div class="top-div">
       <a href="index.html"><i class="fas fa-arrow-left back-btn"></i></a>
-      <h2 id="timer" onload="hello()"></h2>
+      <h2 id="timer"></h2>
     </div>
     <div class="main-div">
       <div id="information-div">
@@ -19,8 +19,8 @@
       </div>
       <div class="input-div">
         <h2>Album</h2>
-        <form class="album-answer-input" action="game.html" onsubmit="saveResult()" method="get" autocomplete="off">
-          <input type="text" name="answer" id="answer-input" maxlength="100">
+        <form class="album-answer-input" action="save_answer.php" onsubmit="saveResult()" method="post" autocomplete="off">
+          <input type="text" name="answer-input" id="answer-input" maxlength="100">
         </form>
       </div>
       <div class="randomize-div">
