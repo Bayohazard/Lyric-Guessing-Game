@@ -45,10 +45,6 @@ button {
   padding: 0.3rem 0.6rem;
 }
 
-.main-div {
-  margin: 5rem 0;
-}
-
 .randomize-div {
   text-align: center;
   margin-top: 5rem;
@@ -69,10 +65,10 @@ button {
   padding: 1rem 2rem;
 }
 
-#title, #artist {
+.information-div {
   text-align: center;
   display: block;
-  margin: 2rem;
+  margin: 2.5rem;
 }
 
 #answer-input {

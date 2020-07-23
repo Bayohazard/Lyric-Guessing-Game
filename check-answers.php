@@ -10,13 +10,7 @@ if(isset($_GET["input"])) {
   echo "<br /> Inside GET";
   echo $name;
   echo "<br />";
-
 }
-
-
-// foreach($inputs as $in) {
-//   echo $in . "<br />";
-// }
 
 // Display the title of every song that appeared
 foreach($answers as $ans) {

@@ -1,11 +1,15 @@
 <?php
-
 $post = $_POST;
+// Makes sure the array is only initialized the first time
+echo $post;
 
-print_r($post);
-if (isset($post['answer-input'])) {
+if(!isset($results)) {
+  $results = array();
+}
+
+if(isset($post['answer-input'])) {
   // success / fail
   // ok / error
-  $data = ['status' => 'ok', 'message' => 'Answer saved successfully.'];
+  $data = [];
   $response = json_encode($data);
 }

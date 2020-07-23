@@ -1,9 +1,10 @@
 const START_TIME = Math.round(Date.now() / 1000);
-const timer = setInterval(updateTimer, 50);
+const TIMER = setInterval(updateTimer, 50);
 
-// The timer starts at 1 minute
-const TIME_ALLOWED = 60;
+// The timer starts at 1 minute(60 seconds)
+const TIME_ALLOWED = 100;
 
+let songInformation;
 
 function setup() {
   updateTimer();
@@ -15,18 +16,30 @@ function load() {
 
   request.onreadystatechange = function() {
     if(this.readyState == 4 && this.status == 200) {
-      document.getElementById("information-div").innerHTML = this.responseText;
+      songInformation = JSON.parse(this.responseText);
+      document.getElementById("title").innerHTML = songInformation["Title"];
+      document.getElementById("artist").innerHTML = songInformation["Artist"];
     }
   }
-  request.open("GET", "database.php", true);
+  request.open("GET", "get-random-song.php", true);
   request.send();
 }
 
-function saveResult() {
+function saveAnswer() {
   let answer = document.getElementById("answer-input").value;
-  inputs.push(answer);
-  console.log(inputs);
-  // ajax POST => 'save-answer.php';
+  const request = new XMLHttpRequest();
+
+  songInformation["Input"] = answer;
+  let submission = JSON.stringify(songInformation);
+
+  request.onreadystatechange = function() {
+    if(this.readyState == 4 && this.status == 200) {
+      console.log(this.responseText);
+    }
+  }
+  request.open("POST", "save-answer.php", true);
+  request.send();
+
 }
 
 // Get number of seconds since page loaded and display it after formating it
@@ -38,17 +51,17 @@ function updateTimer() {
     timeLeft = 0;
     location.href = 'stats.php';
   }
+  // If the timer fails, stop it from running
   try {
     document.getElementById("timer").innerHTML = formatTime(timeLeft);
   } catch(err) {
-    clearInterval(timer);
+    clearInterval(TIMER);
   }
 
 }
 
 function endGame() {
   const request = new XMLHttpRequest();
-  const answersJSON = JSON.stringify(inputs);
 
   request.onreadystatechange = function() {
     if(this.readyState == 4 && this.status == 200) {
