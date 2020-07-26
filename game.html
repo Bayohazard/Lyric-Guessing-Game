@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="style.css">
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
   </head>
-  <body onload="setup()">
+  <body onload="load()">
     <div class="top-div">
-      <a href="index.html"><i class="fas fa-arrow-left back-btn"></i></a>
+      <a href="index.html" id="back-button"><i class="fas fa-arrow-left back-btn"></i></a>
       <h2 id="timer"></h2>
     </div>
     <div class="main-div">
@@ -23,14 +23,16 @@
       </div>
       <div class="input-div">
         <h2>Album</h2>
-        <form class="album-answer-input" onsubmit="saveAnswer()" method="post" autocomplete="off">
-          <input type="text" id="answer-input" maxlength="100">
+        <form class="album-answer-input" onsubmit="saveAnswer()" autocomplete="off">
+          <input type="text" id="answer-input" maxlength="100" autofocus>
         </form>
       </div>
       <div class="randomize-div">
         <button type="button" name="button" onclick="load()">Randomize</button>
       </div>
     </div>
+
     <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="timer.js"></script>
   </body>
 </html>
