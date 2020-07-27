@@ -1,8 +1,9 @@
-function load() {
+function displayRandomSong() {
   const request = new XMLHttpRequest();
 
   request.onreadystatechange = function() {
     if(this.readyState == 4 && this.status == 200) {
+      console.log(this.responseText);
       songInformation = JSON.parse(this.responseText);
       document.getElementById("title").innerHTML = songInformation["Title"];
       document.getElementById("artist").innerHTML = songInformation["Artist"];

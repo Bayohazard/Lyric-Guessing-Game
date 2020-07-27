@@ -1,5 +1,5 @@
 <?php
-include 'connect-database.php';
+include '../config/connect-database.php';
 
 // Get information for a random song
 $sql = "SELECT Title, Artist, Album FROM songs ORDER BY RAND() LIMIT 1";
