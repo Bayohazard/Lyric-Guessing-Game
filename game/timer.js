@@ -23,7 +23,7 @@ function updateTimer() {
   // Clear the timer and go to results page
   if(timeLeft <= 0) {
     sessionStorage.removeItem("startTime");
-    location.href = 'stats.php';
+    location.href = 'results.php';
   }
 
   // If the timer fails, stop it from running
