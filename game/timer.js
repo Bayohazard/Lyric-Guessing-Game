@@ -1,5 +1,5 @@
 const TIMER = setInterval(updateTimer, 500);
-const TIME_ALLOWED = 60;
+const TIME_ALLOWED = 10;
 document.getElementById("back-button").addEventListener("click", function(){
   sessionStorage.removeItem("startTime");
 });
@@ -23,7 +23,7 @@ function updateTimer() {
   // Clear the timer and go to results page
   if(timeLeft <= 0) {
     sessionStorage.removeItem("startTime");
-    location.href = 'results.php';
+    location.href = '../results.php';
   }
 
   // If the timer fails, stop it from running

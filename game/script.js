@@ -28,6 +28,6 @@ function saveAnswer() {
 
   request.open("POST", "save-answer.php", true);
   request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  request.send("input=" + submission);
+  request.send("Input=" + submission);
 
 }
