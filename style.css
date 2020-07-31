@@ -45,18 +45,23 @@ button {
   padding: 0.3rem 0.6rem;
 }
 
+table {
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid black;
+  background-color: #EEE;
+}
+
+th, td {
+  padding: 0.5rem 1rem;
+}
+
 .randomize-div {
-  text-align: center;
   margin-top: 5rem;
   padding: 0.3rem 0.6rem;
 }
 
-.input-div {
-  text-align: center;
-}
-
 .start-btn {
-  text-align: center;
   margin-top: 50vh;
 }
 
@@ -66,9 +71,28 @@ button {
 }
 
 .information-div {
-  text-align: center;
   display: block;
   margin: 2.5rem;
+}
+
+.table-div {
+  margin-top: 3rem;
+}
+
+.table-cell {
+  padding: 0.3rem 0.6rem;
+}
+
+.correct {
+  background-color: #31C231;
+}
+
+.incorrect {
+  background-color: red;
+}
+
+.center {
+  text-align: center;
 }
 
 #answer-input {

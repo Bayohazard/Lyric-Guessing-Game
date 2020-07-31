@@ -1,5 +1,5 @@
 const TIMER = setInterval(updateTimer, 500);
-const TIME_ALLOWED = 10;
+const TIME_ALLOWED = 60;
 document.getElementById("back-button").addEventListener("click", function(){
   sessionStorage.removeItem("startTime");
 });

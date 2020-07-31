@@ -29,13 +29,13 @@ function removeUnnecessaryWords($row) {
   // Removes any unnecessary words from the title
   foreach($unnecessary_words as $uw) {
     if(strpos($row["Title"], $uw)) {
-      str_replace($uw, "", $row["Title"]);
+      $row["Title"] = str_replace($uw, "", $row["Title"]);
     }
     if(strpos($row["Artist"], $uw)) {
-      str_replace($uw, "", $row["Artist"]);
+      $row["Artist"] = str_replace($uw, "", $row["Artist"]);
     }
     if(strpos($row["Album"], $uw)) {
-      str_replace($uw, "", $row["Album"]);
+      $row["Album"] = str_replace($uw, "", $row["Album"]);
     }
   }
 }
